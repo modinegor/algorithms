@@ -68,8 +68,3 @@ class Matrix(object):
         if item >= len(self._matrix):
             raise IndexError
         return self._matrix[item]
-
-
-a = Matrix([[1, 3],
-            [2, 5]])
-3 * a
