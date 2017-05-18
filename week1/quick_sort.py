@@ -7,18 +7,17 @@ def quick_sort(array):
 
     array_middle = len(array) / 2
 
+    def swap(i, j):
+        a = array[i]
+        array[i] = array[j]
+        array[j] = a
+
     if len(array) > 2 and array[0] > array[array_middle]:
-        a = array[0]
-        array[0] = array[array_middle]
-        array[array_middle] = a
+        swap(0, array_middle)
     if array[0] > array[-1]:
-        a = array[0]
-        array[0] = array[-1]
-        array[-1] = a
+        swap(0, -1)
     if len(array) > 2 and array[array_middle] > array[-1]:
-        a = array[array_middle]
-        array[array_middle] = array[-1]
-        array[-1] = a
+        swap(array_middle, -1)
 
     a = array[array_middle]
 
