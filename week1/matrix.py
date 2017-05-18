@@ -4,9 +4,9 @@ class Matrix(object):
             raise TypeError()
         mx = args[0]
         if not isinstance(mx, list):
-            raise TypeError('{0} is not a matrix'.format(mx))
+            raise TypeError("'{0}' is not a matrix".format(mx))
         if not all(map(lambda x: isinstance(x, list) and len(x) == len(mx[0]), mx)):
-            raise TypeError('{0} is not a matrix'.format(mx))
+            raise TypeError("'{0}' is not a matrix".format(mx))
         return super(Matrix, cls).__new__(cls)
 
     @classmethod
@@ -36,6 +36,9 @@ class Matrix(object):
             return Matrix(new_matrix)
         else:
             raise TypeError("cannot multiply 'Matrix' and '{0}'".format(other.__class__))
+
+    def __rmul__(self, other):
+        return self.__mul__(other)
 
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
@@ -69,7 +72,4 @@ class Matrix(object):
 
 a = Matrix([[1, 3],
             [2, 5]])
-b = Matrix.Identity(2)
-assert a * b == a
-assert b * b == b
-assert a + b == Matrix([[2, 3], [2, 6]])
+3 * a

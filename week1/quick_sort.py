@@ -1,6 +1,3 @@
-import random
-
-
 def quick_sort(array):
     if len(array) <= 1:
         return array
